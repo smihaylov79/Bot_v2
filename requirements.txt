@@ -1,0 +1,4 @@
+metatrader5~=5.0.5640
+pandas~=3.0.1
+pytz~=2026.1.post1
+PyYAML~=6.0.3

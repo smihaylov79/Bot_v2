@@ -1,0 +1,13 @@
+trading:
+  risk_per_trade: 0.2
+  max_open_trades: 10
+  equity_limit: 0.7
+  live_monitoring: true
+
+timezone: "Europe/Sofia"
+log_level: "INFO"
+max_symbols: 5
+
+impulse:
+  atr_period: 14
+  atr_multiplier: 1.5

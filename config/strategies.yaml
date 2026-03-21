@@ -1,0 +1,32 @@
+active_strategies:
+  - ny_open
+  - high_vol
+  - scalping
+
+ny_open:
+  start_hour: 15
+  end_hour: 18
+  min_volatility: 0.5
+
+high_vol:
+  atr_multiplier: 2.0
+  swing_left: 5
+  swing_right: 5
+
+scalping:
+  max_spread: 20
+  impulse_threshold: 1.5
+  swing_left: 1
+  swing_right: 1
+
+zones:
+  micro:
+    left: 2
+    right: 2
+  macro:
+    left: 10
+    right: 10
+  tolerance: 0.0005
+
+
+
