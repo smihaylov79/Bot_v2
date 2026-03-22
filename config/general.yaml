@@ -11,3 +11,8 @@ max_symbols: 5
 impulse:
   atr_period: 14
   atr_multiplier: 1.5
+
+timeframes:
+  - M1
+  - M5
+  - M15

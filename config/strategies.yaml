@@ -3,6 +3,15 @@ active_strategies:
   - high_vol
   - scalping
 
+strategy:
+  min_score: 2
+  min_confidence: 0.3
+  require_trend_alignment: false   # you can turn this on later
+  sl_atr_multiplier: 1.5
+  tp_atr_multiplier: 3.0
+  exit_score: 2
+
+
 ny_open:
   start_hour: 15
   end_hour: 18
@@ -27,6 +36,20 @@ zones:
     left: 10
     right: 10
   tolerance: 0.0005
+
+volatility:
+  atr_period: 14
+  percentile_window: 200
+  expansion_factor: 1.5
+  compression_factor: 0.7
+
+trend:
+  ma_fast: 20
+  ma_slow: 50
+  swing_lookback: 10
+  swing_high_col: is_swing_high
+  swing_low_col: is_swing_low
+
 
 
 

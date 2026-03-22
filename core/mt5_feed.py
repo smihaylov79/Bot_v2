@@ -17,36 +17,56 @@ class MT5Feed:
     def shutdown(self):
         mt5.shutdown()
 
-    def get_ohlcv(self, symbol, timeframe, n_bars=2000):
-        """
-        Unified function to fetch OHLCV data from MT5.
-        Returns a pandas DataFrame with timezone-aware timestamps.
-        """
-
-        # MT5 timeframes are integers, so user passes mt5.TIMEFRAME_M5 etc.
-        rates = mt5.copy_rates_from_pos(symbol, timeframe, 0, n_bars)
-
+    def get_ohlcv(self, symbol, timeframe, count):
+        rates = mt5.copy_rates_from_pos(symbol, timeframe, 0, count)
         if rates is None or len(rates) == 0:
-            raise RuntimeError(f"Failed to get data for {symbol}: {mt5.last_error()}")
+            return pd.DataFrame()
 
         df = pd.DataFrame(rates)
 
-        # Convert MT5 timestamp to timezone-aware datetime
-        df['time'] = pd.to_datetime(df['time'], unit='s')
+        # MT5 'time' is already UNIX seconds (UTC)
+        df["timestamp"] = df["time"].astype("int64")
 
-        # If broker server time is already BG time (or what terminal shows):
-        df['time'] = df['time'].dt.tz_localize(self.tz)
+        # Human-readable datetime (UTC) for inspection
+        df["timestamp_dt"] = pd.to_datetime(df["time"], unit="s", utc=True)
 
-        df = df.rename(columns={
-            'time': 'timestamp',
-            'open': 'open',
-            'high': 'high',
-            'low': 'low',
-            'close': 'close',
-            'tick_volume': 'volume'
-        })
+        # Normalize volume
+        if "tick_volume" in df.columns:
+            df = df.rename(columns={"tick_volume": "volume"})
 
-        return df[['timestamp', 'open', 'high', 'low', 'close', 'volume']]
+        df = df[["timestamp", "timestamp_dt", "open", "high", "low", "close", "volume"]]
+        return df
+
+    # def get_ohlcv(self, symbol, timeframe, n_bars=2000):
+    #     """
+    #     Unified function to fetch OHLCV data from MT5.
+    #     Returns a pandas DataFrame with timezone-aware timestamps.
+    #     """
+    #
+    #     # MT5 timeframes are integers, so user passes mt5.TIMEFRAME_M5 etc.
+    #     rates = mt5.copy_rates_from_pos(symbol, timeframe, 0, n_bars)
+    #
+    #     if rates is None or len(rates) == 0:
+    #         raise RuntimeError(f"Failed to get data for {symbol}: {mt5.last_error()}")
+    #
+    #     df = pd.DataFrame(rates)
+    #
+    #     # Convert MT5 timestamp to timezone-aware datetime
+    #     df['time'] = pd.to_datetime(df['time'], unit='s')
+    #
+    #     # If broker server time is already BG time (or what terminal shows):
+    #     df['time'] = df['time'].dt.tz_localize(self.tz)
+    #
+    #     df = df.rename(columns={
+    #         'time': 'timestamp',
+    #         'open': 'open',
+    #         'high': 'high',
+    #         'low': 'low',
+    #         'close': 'close',
+    #         'tick_volume': 'volume'
+    #     })
+    #
+    #     return df[['timestamp', 'open', 'high', 'low', 'close', 'volume']]
 
     def get_last_candle(self, symbol, timeframe):
         df = self.get_ohlcv(symbol, timeframe, n_bars=1)

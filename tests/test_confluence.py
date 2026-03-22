@@ -1,5 +1,5 @@
 # tests/test_confluence.py
-
+from analysis.signals import SignalGenerator
 from core.mt5_feed import MT5Feed
 from core.config_loader import ConfigLoader
 
@@ -10,15 +10,17 @@ from analysis.confluence import ConfluenceEngine
 
 import MetaTrader5 as mt5
 
+from core.strategy_engine import StrategyEngine
+
 
 def run():
     print("Testing Confluence Engine...")
 
     # Load config
     cfg = ConfigLoader().load_all()
-    print(cfg["symbols"])
     symbol_cfg = cfg["symbols"]["EURUSD"]["patterns"]
     zone_cfg = cfg["strategies"]["zones"]
+    strategy_cfg = cfg["strategies"]["strategy"]
 
     # Fetch data
     feed = MT5Feed()
@@ -54,6 +56,18 @@ def run():
         zones=all_zones,
         tolerance=zone_cfg["tolerance"]
     )
+    current_position = None
+    signal = SignalGenerator.from_confluence(
+        symbol="EURUSD",
+        timeframe=mt5.TIMEFRAME_M5,
+        df=df,
+        confluence=result,
+    )
+
+    print(signal)
+    decision = StrategyEngine.evaluate(df, signal, strategy_cfg, current_position)
+    print(decision)
+
 
     print("\n--- Confluence Result ---")
     print("Pattern score:", result["pattern_score"])

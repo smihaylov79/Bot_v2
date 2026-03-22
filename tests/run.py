@@ -10,6 +10,8 @@ TEST_MODULES = [
     "tests.test_zones",
     "tests.test_patterns",
     "tests.test_confluence",
+    "tests.test_volatility",
+    "tests.test_trend",
 
 ]
 
