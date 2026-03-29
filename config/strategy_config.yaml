@@ -1,0 +1,130 @@
+# ============================================================
+# DEFAULT STRATEGY SETTINGS (applied to all symbols unless overridden)
+# ============================================================
+default:
+
+  # ------------------------------------------------------------
+  # Strategy-level settings (what BacktestEngine expects)
+  # ------------------------------------------------------------
+  strategy:
+    min_score: 2                # mirrors confluence.min_score
+    min_confidence: 0.3         # mirrors confluence.min_confidence
+    require_trend_alignment: true
+    sl_atr_multiplier: 2.0      # mirrors risk.sl_atr
+    tp_atr_multiplier: 3.0      # mirrors risk.tp_atr
+    exit_score: 0               # when to force-exit based on score
+
+  # ------------------------------------------------------------
+  # Confluence Engine Settings
+  # ------------------------------------------------------------
+  confluence:
+    min_score: 2
+    min_confidence: 0.3
+    weights:
+      pattern: 1
+      zone: 1
+      volatility: 1
+      trend: 1
+
+  # ------------------------------------------------------------
+  # Pattern Settings
+  # ------------------------------------------------------------
+  patterns:
+    bullish:
+      - bullish_engulfing
+      - hammer
+      - morning_star
+      - bullish_pin_bar
+      - bullish_three_bar_reversal
+      - bullish_breakout_bar
+      - bullish_inside_bar
+
+    bearish:
+      - bearish_engulfing
+      - shooting_star
+      - evening_star
+      - bearish_pin_bar
+      - bearish_three_bar_reversal
+      - bearish_breakout_bar
+      - bearish_inside_bar
+
+    neutral:
+      - doji
+      - outside_bar
+
+  # Pattern weights (optimizable)
+  pattern_weights:
+    bullish_engulfing: 1
+    hammer: 1
+    morning_star: 1
+    bullish_pin_bar: 1
+    bullish_three_bar_reversal: 1
+    bullish_breakout_bar: 1
+    bullish_inside_bar: 1
+
+    bearish_engulfing: -1
+    shooting_star: -1
+    evening_star: -1
+    bearish_pin_bar: -1
+    bearish_three_bar_reversal: -1
+    bearish_breakout_bar: -1
+    bearish_inside_bar: -1
+
+    doji: 0
+    outside_bar: 0
+
+  # ------------------------------------------------------------
+  # Volatility Settings (optimizable)
+  # ------------------------------------------------------------
+  volatility:
+    atr_period: 14
+    percentile_window: 200
+    expansion_factor: 1.5
+    compression_factor: 0.7
+
+  # ------------------------------------------------------------
+  # Trend Settings (optimizable)
+  # ------------------------------------------------------------
+  trend:
+    ma_fast: 20
+    ma_slow: 50
+    swing_lookback: 10
+
+  # ------------------------------------------------------------
+  # Zone Settings (optimizable)
+  # ------------------------------------------------------------
+  zones:
+    left: 3
+    right: 3
+    tolerance: 0.0015
+
+  # ------------------------------------------------------------
+  # Risk Settings (optimizable)
+  # ------------------------------------------------------------
+  risk:
+    sl_atr: 2
+    tp_atr: 3
+    max_risk_per_trade: 0.01
+
+  # ------------------------------------------------------------
+  # Session Filters (optional)
+  # ------------------------------------------------------------
+  sessions:
+    enabled: true
+    start: "07:00"
+    end: "18:00"
+
+
+# ============================================================
+# PER-SYMBOL OVERRIDES (only override what differs from default)
+# ============================================================
+symbols:
+
+  EURUSD: {}
+  CRUDOIL: {}
+  COPPER: {}
+  US100: {}
+  USDJPY: {}
+  "[SP500]": {}
+  SILVER: {}
+

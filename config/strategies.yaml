@@ -4,8 +4,8 @@ active_strategies:
   - scalping
 
 strategy:
-  min_score: 2
-  min_confidence: 0.3
+  min_score: 3
+  min_confidence: 0.5
   require_trend_alignment: false   # you can turn this on later
   sl_atr_multiplier: 1.5
   tp_atr_multiplier: 3.0

@@ -6,9 +6,20 @@ from pathlib import Path
 
 
 class MarketDataStorage:
+    # def __init__(self, db_path="storage/market_data.db"):
+    #
+    #     self.db_path = Path(db_path)
+    #     self.db_path.parent.mkdir(parents=True, exist_ok=True)
+    #     self._create_tables()
     def __init__(self, db_path="storage/market_data.db"):
-        self.db_path = Path(db_path)
+        # Resolve absolute path relative to project root
+        project_root = Path(__file__).resolve().parents[1]
+        self.db_path = project_root / db_path
+
+        # Ensure folder exists
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Create tables if needed
         self._create_tables()
 
     def _connect(self):

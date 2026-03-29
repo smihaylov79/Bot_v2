@@ -28,8 +28,10 @@ class Zones:
         df["is_swing_high"] = False
         df["is_swing_low"] = False
 
-        df.loc[swing_highs, "is_swing_high"] = True
-        df.loc[swing_lows, "is_swing_low"] = True
+        # df.loc[swing_highs, "is_swing_high"] = True
+        # df.loc[swing_lows, "is_swing_low"] = True
+        df.iloc[swing_highs, df.columns.get_loc("is_swing_high")] = True
+        df.iloc[swing_lows, df.columns.get_loc("is_swing_low")] = True
 
         return df
 

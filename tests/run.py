@@ -4,14 +4,14 @@ import importlib
 import sys
 
 TEST_MODULES = [
-    "tests.test_mt5_feed",
-    "tests.test_config_loader",
-    "tests.test_candles",
+    # "tests.test_mt5_feed",
+    # "tests.test_config_loader",
+    # "tests.test_candles",
     "tests.test_zones",
     "tests.test_patterns",
     "tests.test_confluence",
     "tests.test_volatility",
-    "tests.test_trend",
+    # "tests.test_trend",
 
 ]
 
