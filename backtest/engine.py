@@ -95,7 +95,7 @@ class BacktestEngine:
             if position is None:
 
                 # Must meet min score
-                if row["total_score"] < self.min_score:
+                if abs(row["total_score"]) < self.min_score:
                     continue
 
                 # Must meet confidence

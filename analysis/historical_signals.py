@@ -6,7 +6,6 @@ from analysis.confluence import ConfluenceEngine
 from analysis.zones import Zones
 
 
-
 class HistoricalSignalGenerator:
 
     def __init__(self, symbol_cfg, left=3, right=3, tolerance=0.0005):
@@ -43,7 +42,6 @@ class HistoricalSignalGenerator:
         df = Volatility.compute_all(df, vol_cfg)
 
         # 4) Swings (needed for trend)
-        from analysis.zones import Zones
         df = Zones.find_swings(df, left=self.left, right=self.right)
 
         # 5) Trend

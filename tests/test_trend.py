@@ -1,9 +1,9 @@
 from core.mt5_feed import MT5Feed
 from core.config_loader import ConfigLoader
 
-from analysis.candles import CandleMetrics
-from analysis.zones import Zones
-from analysis.trend import Trend
+from trading_core.candles import CandleMetrics
+from trading_core.zones import Zones
+from trading_core.trend import Trend
 
 import MetaTrader5 as mt5
 

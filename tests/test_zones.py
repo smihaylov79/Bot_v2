@@ -1,5 +1,5 @@
 from core.config_loader import ConfigLoader
-from analysis.zones import Zones
+from trading_core.zones import Zones
 from core.mt5_feed import MT5Feed
 import MetaTrader5 as mt5
 

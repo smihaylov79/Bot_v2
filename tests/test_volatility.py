@@ -1,8 +1,8 @@
 from core.mt5_feed import MT5Feed
 from core.config_loader import ConfigLoader
 
-from analysis.candles import CandleMetrics
-from analysis.volatility import Volatility
+from trading_core.candles import CandleMetrics
+from trading_core.volatility import Volatility
 
 import MetaTrader5 as mt5
 

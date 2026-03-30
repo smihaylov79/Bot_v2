@@ -1,6 +1,6 @@
 # tests/test_candles.py
 
-from analysis.candles import CandleMetrics
+from trading_core.candles import CandleMetrics
 from core.mt5_feed import MT5Feed
 import MetaTrader5 as mt5
 

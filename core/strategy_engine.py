@@ -2,7 +2,8 @@
 
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
-from analysis.signals import Signal
+# from analysis.signals import Signal
+from trading_core.signals import Signal
 
 
 @dataclass

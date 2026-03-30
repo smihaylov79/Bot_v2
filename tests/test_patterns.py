@@ -1,8 +1,8 @@
 # tests/test_patterns.py
 
 from core.mt5_feed import MT5Feed
-from analysis.candles import CandleMetrics
-from analysis.patterns import Patterns
+from trading_core.candles import CandleMetrics
+from trading_core.patterns import Patterns
 import MetaTrader5 as mt5
 
 def run():

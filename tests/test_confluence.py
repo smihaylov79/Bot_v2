@@ -1,12 +1,12 @@
 # tests/test_confluence.py
-from analysis.signals import SignalGenerator
+from trading_core.signals import SignalGenerator
 from core.mt5_feed import MT5Feed
 from core.config_loader import ConfigLoader
 
-from analysis.candles import CandleMetrics
-from analysis.patterns import Patterns
-from analysis.zones import Zones
-from analysis.confluence import ConfluenceEngine
+from trading_core.candles import CandleMetrics
+from trading_core.patterns import Patterns
+from trading_core.zones import Zones
+from trading_core.confluence import ConfluenceEngine
 
 import MetaTrader5 as mt5
 

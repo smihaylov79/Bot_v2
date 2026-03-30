@@ -44,51 +44,51 @@ EURUSD:
       - doji
       - outside_bar
 
-CRUDOIL:
-  enabled: true
-  patterns:
-    bullish:
-      - bullish_engulfing
-      - hammer
-      - morning_star
-      - bullish_pin_bar
-      - bullish_three_bar_reversal
-      - bullish_breakout_bar
-      - bullish_inside_bar
-    bearish:
-      - bearish_engulfing
-      - shooting_star
-      - evening_star
-      - bearish_pin_bar
-      - bearish_three_bar_reversal
-      - bearish_breakout_bar
-      - bearish_inside_bar
-    neutral:
-      - doji
-      - outside_bar
+#CRUDOIL:
+#  enabled: true
+#  patterns:
+#    bullish:
+#      - bullish_engulfing
+#      - hammer
+#      - morning_star
+#      - bullish_pin_bar
+#      - bullish_three_bar_reversal
+#      - bullish_breakout_bar
+#      - bullish_inside_bar
+#    bearish:
+#      - bearish_engulfing
+#      - shooting_star
+#      - evening_star
+#      - bearish_pin_bar
+#      - bearish_three_bar_reversal
+#      - bearish_breakout_bar
+#      - bearish_inside_bar
+#    neutral:
+#      - doji
+#      - outside_bar
 
-COPPER:
-  enabled: true
-  patterns:
-    bullish:
-      - bullish_engulfing
-      - hammer
-      - morning_star
-      - bullish_pin_bar
-      - bullish_three_bar_reversal
-      - bullish_breakout_bar
-      - bullish_inside_bar
-    bearish:
-      - bearish_engulfing
-      - shooting_star
-      - evening_star
-      - bearish_pin_bar
-      - bearish_three_bar_reversal
-      - bearish_breakout_bar
-      - bearish_inside_bar
-    neutral:
-      - doji
-      - outside_bar
+#COPPER:
+#  enabled: true
+#  patterns:
+#    bullish:
+#      - bullish_engulfing
+#      - hammer
+#      - morning_star
+#      - bullish_pin_bar
+#      - bullish_three_bar_reversal
+#      - bullish_breakout_bar
+#      - bullish_inside_bar
+#    bearish:
+#      - bearish_engulfing
+#      - shooting_star
+#      - evening_star
+#      - bearish_pin_bar
+#      - bearish_three_bar_reversal
+#      - bearish_breakout_bar
+#      - bearish_inside_bar
+#    neutral:
+#      - doji
+#      - outside_bar
 
 US100:
   enabled: true
@@ -136,25 +136,25 @@ USDJPY:
       - doji
       - outside_bar
 
-SILVER:
-  enabled: true
-  patterns:
-    bullish:
-      - bullish_engulfing
-      - hammer
-      - morning_star
-      - bullish_pin_bar
-      - bullish_three_bar_reversal
-      - bullish_breakout_bar
-      - bullish_inside_bar
-    bearish:
-      - bearish_engulfing
-      - shooting_star
-      - evening_star
-      - bearish_pin_bar
-      - bearish_three_bar_reversal
-      - bearish_breakout_bar
-      - bearish_inside_bar
-    neutral:
-      - doji
-      - outside_bar
+#SILVER:
+#  enabled: true
+#  patterns:
+#    bullish:
+#      - bullish_engulfing
+#      - hammer
+#      - morning_star
+#      - bullish_pin_bar
+#      - bullish_three_bar_reversal
+#      - bullish_breakout_bar
+#      - bullish_inside_bar
+#    bearish:
+#      - bearish_engulfing
+#      - shooting_star
+#      - evening_star
+#      - bearish_pin_bar
+#      - bearish_three_bar_reversal
+#      - bearish_breakout_bar
+#      - bearish_inside_bar
+#    neutral:
+#      - doji
+#      - outside_bar
